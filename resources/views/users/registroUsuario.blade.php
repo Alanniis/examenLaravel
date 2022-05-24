@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-sm-8 mx-auto">
 
-                    <div class="card border-0 shadow col-sm-8">
+                    <div class="card border-0 shadow">
                         <div class="card-body">
 
                             @if($errors->any())
@@ -30,13 +30,16 @@
 
                             </div>
                             @endif
+                           <h1>Registrate</h1>
 
-
-                                <form action="" method="GET">
+                                <form action="{{ route('users.store')}}" method="POST">
+                                    
                                     <div class="form-row">
 
-                                        <h1>Login</h1>
-                                        <p><strong>Ingrese sus datos</strong></p>
+                                        <div class="col-sm-3">
+                                            <input type="text" name="name" class="form-control" placeholder="Nombre" value="{{old('name')}}"/>
+
+                                        </div>
                                         <div class="col-sm-4">
                                             <input type="email" name="email" class="form-control" placeholder="Email" value="{{old('email')}}"/>
 
@@ -53,10 +56,11 @@
                                     </div>
 
                                 </form>
-                                <a href="/">¿No tienes una cuenta? Registrate</a>
                     </div>
 
                     </div>
+                    
+                    
                     
 
                 </div>
